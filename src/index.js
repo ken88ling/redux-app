@@ -1,17 +1,22 @@
-import ObjectSample from '../src/functional/objects';
-import ArraySample from '../src/functional/arrays';
-import ImmutableSample from '../src/functional/immutable';
-import immerSample from '../src/functional/immer';
-import CurryingSample, { CurryingSample2 } from '../src/functional/currying';
-import CompositionSample, {
-  CompositionSample2,
-} from '../src/functional/composition';
+import store from './store';
 
-// ObjectSample();
-// ArraySample();
-// CurryingSample();
-// CurryingSample2();
-// CompositionSample();
-// CompositionSample2();
-// ImmutableSample();
-immerSample();
+const unsubscribe = store.subscribe(() => {
+  console.log('store changed', store.getState());
+});
+
+store.dispatch({
+  type: 'bugAdded',
+  payload: {
+    description: 'Bug1',
+  },
+});
+
+unsubscribe();
+store.dispatch({
+  type: 'bugRemoved',
+  payload: {
+    id: 1,
+  },
+});
+
+console.log('state => ', store.getState());
