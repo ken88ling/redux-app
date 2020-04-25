@@ -1,6 +1,7 @@
 import ObjectSample from '../src/functional/objects';
 import ArraySample from '../src/functional/arrays';
 import ImmutableSample from '../src/functional/immutable';
+import immerSample from '../src/functional/immer';
 import CurryingSample, { CurryingSample2 } from '../src/functional/currying';
 import CompositionSample, {
   CompositionSample2,
@@ -12,4 +13,5 @@ import CompositionSample, {
 // CurryingSample2();
 // CompositionSample();
 // CompositionSample2();
-ImmutableSample();
+// ImmutableSample();
+immerSample();
