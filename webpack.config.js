@@ -11,4 +11,5 @@ module.exports = {
     port: 9002,
   },
   mode: 'development',
+  devtool: 'source-map',
 };
