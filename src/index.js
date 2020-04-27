@@ -8,3 +8,10 @@ store.dispatch((dispatch, getState) => {
   dispatch({ type: 'bugReceived', bug: [1, 2, 3] });
   // if the promise not resolved => dispatch() another dispatch
 });
+
+store.dispatch({
+  type: 'error',
+  payload: {
+    message: 'an error occurred',
+  },
+});
