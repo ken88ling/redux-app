@@ -15,7 +15,6 @@ const api = ({ dispatch }) => (next) => async (action) => {
       method,
       data,
     });
-    console.log(response);
 
     // General
     dispatch(actions.apiCallSuccess(response.data));
