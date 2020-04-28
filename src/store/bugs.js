@@ -2,6 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import { createSelector } from 'reselect';
 import { apiCallBegan } from './api';
 import moment from 'moment';
+import axios from 'axios';
 
 const slice = createSlice({
   name: 'bugs',
