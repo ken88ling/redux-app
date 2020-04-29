@@ -2,7 +2,6 @@ import { createSlice } from '@reduxjs/toolkit';
 import { createSelector } from 'reselect';
 import { apiCallBegan } from './api';
 import moment from 'moment';
-import axios from 'axios';
 
 const slice = createSlice({
   name: 'bugs',
@@ -59,13 +58,10 @@ const url = '/bugs';
 // () => fn(dispatch, getState)
 export const loadBugs = () => (dispatch, getState) => {
   const { lastFetch } = getState().entities.bugs;
-  console.log(lastFetch);
   const diffInMin = moment().diff(moment(lastFetch), 'minutes');
-  console.log('diff', diffInMin);
   if (diffInMin < 10) return;
 
-  console.log('last fetch', lastFetch);
-  dispatch(
+  return dispatch(
     apiCallBegan({
       url,
       onStart: bugsRequested.type,
